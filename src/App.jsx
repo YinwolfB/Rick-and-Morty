@@ -10,7 +10,7 @@ function App() {
   const [locationId, setLocationId] = useState(Math.floor(Math.random() * 126) + 1)
 
   const url = `https://rickandmortyapi.com/api/location/${locationId}`
-  const [location, getLocation] = useFetch(url)
+  const [location, getLocation, isLoading, hasError] = useFetch(url)
 
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function App() {
   }, [locationId])
 
   const inputLocation = useRef()
-  const handleLocation = event =>{
+  const handleLocation = event => {
     event.preventDefault()
     setLocationId(inputLocation.current.value.trim())
   }
@@ -31,19 +31,31 @@ function App() {
         <input ref={inputLocation} type="text" />
         <button>Search</button>
       </form>
-      <InfoLocation location={location}></InfoLocation>
-      <strong><hr /></strong> {/* Linea horizontal! !!!❗️ */}
-      <strong><hr /></strong> {/* Linea horizontal! !!!❗️ */}
-      <div>
-        {
-          location?.residents.map(url => (
-            <CardCharacter
-              key={url}
-              url={url}
-            ></CardCharacter>
-          ))
-        }
-      </div>
+      {
+        isLoading
+          ? <h2>Loading...</h2>
+          : (
+            hasError || locationId === '0'
+              ? <h2>❌ Hey❗️ You must provide an id from 1 to 126 ❌</h2>
+              : (
+                <>
+                  <InfoLocation location={location}></InfoLocation>
+                  <strong><hr /></strong> {/* Linea horizontal! !!!❗️  */}
+                  <strong><hr /></strong> {/* Linea horizontal! !!!❗️ */}
+                  <div>
+                    {
+                      location?.residents.map(url => (
+                        <CardCharacter
+                          key={url}
+                          url={url}
+                        ></CardCharacter>
+                      ))
+                    }
+                  </div>
+                </>
+              )
+          )
+      }
     </div>
   )
 }
