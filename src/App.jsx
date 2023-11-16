@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import './App.css'
 import { useFetch } from './hook/useFetch'
 import { InfoLocation } from './components/InfoLocation'
+import { CardCharacter } from './components/CardCharacter'
 
 function App() {
 
@@ -13,15 +14,27 @@ function App() {
 
   useEffect(() => {
     getLocation()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
-  console.log(location)
+/*   console.log(location) */
 
   return (
-    <><h1>Rick and Morty</h1>
-    <InfoLocation location={location}></InfoLocation></>
+    <div>
+      <h1>Rick and Morty</h1>
+      <InfoLocation location={location}></InfoLocation>
+      <div>
+        {
+          location?.residents.map(url => (
+            <CardCharacter 
+              key={url}
+              url={url}
+            ></CardCharacter>
+          ))
+        }
+      </div>
+    </div>
   )
 }
 
