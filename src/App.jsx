@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import './App.css'
 import { useFetch } from './hook/useFetch'
+import { InfoLocation } from './components/InfoLocation'
 
 function App() {
 
@@ -9,15 +10,18 @@ function App() {
   const url = `https://rickandmortyapi.com/api/location/${randomIdLocation}`
   const [location, getLocation] = useFetch(url)
 
+
   useEffect(() => {
     getLocation()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
   console.log(location)
 
   return (
-    <h2>Rick and Morty</h2>
+    <><h1>Rick and Morty</h1>
+    <InfoLocation location={location}></InfoLocation></>
   )
 }
 
