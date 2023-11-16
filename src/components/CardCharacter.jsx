@@ -11,7 +11,6 @@ export const CardCharacter = ({ url }) => {
         getResident()
     }, [])
 
-    console.log(resident)
 
     return (
         <article>
