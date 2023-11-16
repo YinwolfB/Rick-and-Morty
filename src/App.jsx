@@ -24,6 +24,8 @@ function App() {
     <div>
       <h1>Rick and Morty</h1>
       <InfoLocation location={location}></InfoLocation>
+      <strong><hr /></strong> {/* Linea horizontal! !!!❗️ */}
+      <strong><hr /></strong> {/* Linea horizontal! !!!❗️ */}
       <div>
         {
           location?.residents.map(url => (
