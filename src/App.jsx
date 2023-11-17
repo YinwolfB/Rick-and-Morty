@@ -23,7 +23,7 @@ function App() {
     event.preventDefault()
     setLocationId(inputLocation.current.value.trim())
   }
-
+  
   return (
     <div>
       <h1>Rick and Morty</h1>
@@ -41,7 +41,9 @@ function App() {
                 <>
                   <InfoLocation location={location}></InfoLocation>
                   <strong><hr /></strong> {/* Linea horizontal! !!!❗️  */}
+                  <br></br>
                   <strong><hr /></strong> {/* Linea horizontal! !!!❗️ */}
+                  <br></br>
                   <div>
                     {
                       location?.residents.map(url => (
