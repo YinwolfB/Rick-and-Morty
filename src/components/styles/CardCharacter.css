@@ -4,15 +4,22 @@
     max-width: 16em;
     border-radius: 0.8rem;
 /*     border: 1px solid black; */
+    box-shadow: 0.25em 0.25em 0.6em #0005;  
     overflow: hidden;
     position: relative;
     color: aliceblue;
+    transition: transform 500ms ease,
+                box-shadow 500ms ease;
 }
-
+.resident:hover{
+    transform: scale(1.04);
+    box-shadow: 0 0 1.5em #0008;
+}
 .resident__status{
     position: absolute;
     top: 10%;
     background-color: #084851;
+/*     box-shadow: 0.25em 0.25em 0.6em #0005; */
     width: 40%;
     display: flex;
     gap: 0.8em;
@@ -33,9 +40,11 @@
     background-color: rgb(255, 53, 53);
 }
 
+
 .Alive {
     background-color: greenyellow;
 }
+
 
 .resident__status--value{
     font-size: 0.9em;

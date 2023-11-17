@@ -1,12 +1,13 @@
+import './styles/InfoLocation.css'
 /* eslint-disable react/prop-types */
 export const InfoLocation = ({ location }) => {
     return (
-        <article>
-            <h2>{location?.name}</h2>
-            <ul>
-                <li><span>Type: </span><span>{location?.type}</span></li>
-                <li><span>Dimension: </span>{location?.dimension}<span></span></li>
-                <li><span>Population: </span>{location?.residents.length}<span></span></li>
+        <article className='location'>
+            <h2 className='location__name'>{location?.name}</h2>
+            <ul className='location__info'>
+                <li className='location__item'><span className='location__label'>Type </span><span className='location__value'>{location?.type}</span></li>
+                <li className='location__item'><span className='location__label'>Dimension </span><span className='location__value'>{location?.dimension}</span></li>
+                <li className='location__item'><span className='location__label'>Population </span><span className='location__value'>{location?.residents.length}</span></li>
             </ul>
         </article>
     )

@@ -23,13 +23,13 @@ function App() {
     event.preventDefault()
     setLocationId(inputLocation.current.value.trim())
   }
-  
+
   return (
-    <div>
-      <h1>Rick and Morty</h1>
-      <form onSubmit={handleLocation}>
-        <input ref={inputLocation} type="text" />
-        <button>Search</button>
+    <div className='app'>
+      <h1 className='app__title'>Rick and Morty</h1>
+      <form className='app__form' onSubmit={handleLocation}>
+        <input className='app__input' ref={inputLocation} type="text" />
+        <button className='app__btn'>Search</button>
       </form>
       {
         isLoading
@@ -40,11 +40,8 @@ function App() {
               : (
                 <>
                   <InfoLocation location={location}></InfoLocation>
-                  <strong><hr /></strong> {/* Linea horizontal! !!!❗️  */}
-                  <br></br>
-                  <strong><hr /></strong> {/* Linea horizontal! !!!❗️ */}
-                  <br></br>
-                  <div>
+
+                  <div className='app__card--container'>
                     {
                       location?.residents.map(url => (
                         <CardCharacter
