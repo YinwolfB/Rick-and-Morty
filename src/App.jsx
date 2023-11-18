@@ -4,13 +4,14 @@ import './App.css'
 import { useFetch } from './hook/useFetch'
 import { InfoLocation } from './components/InfoLocation'
 import { CardCharacter } from './components/CardCharacter'
+import { CardLoading } from './components/CardLoading'
 
 function App() {
 
   const [locationId, setLocationId] = useState(Math.floor(Math.random() * 126) + 1)
 
   const url = `https://rickandmortyapi.com/api/location/${locationId}`
-  const [location, getLocation, isLoading, hasError] = useFetch(url)
+  const [location, getLocation, isLoading, hasError,loading] = useFetch(url)
 
 
   useEffect(() => {
@@ -33,10 +34,10 @@ function App() {
       </form>
       {
         isLoading
-          ? <h2>Loading...</h2>
+          ? <div><CardLoading loading={loading}/> </div>
           : (
             hasError || locationId === '0'
-              ? <h2>❌ Hey❗️ You must provide an id from 1 to 126 ❌</h2>
+              ? <h2 className='app__error'>❌ Hey❗️ You must provide an id from 1 to 126 ❌</h2>
               : (
                 <>
                   <InfoLocation location={location}></InfoLocation>

@@ -40,3 +40,12 @@
     gap: 2em;
     justify-content: center;
 }
+
+.app__error{
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+}
