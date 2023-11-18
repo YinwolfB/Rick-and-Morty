@@ -3,6 +3,14 @@
     min-height: 100vh;
 }
 
+.app__title{
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .app__form{
     display: flex;
     justify-content: center;

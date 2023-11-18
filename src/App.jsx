@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className='app'>
-      <h1 className='app__title'>Rick and Morty</h1>
+      <h1 className='app__title'> <img src="https://static.displate.com/brand/layout/3134386d-c57f-4bb8-882e-6c4aee42dd49/headerDesktopStandard.jpg" alt="" /> </h1>
       <form className='app__form' onSubmit={handleLocation}>
         <input className='app__input' ref={inputLocation} type="text" />
         <button className='app__btn'>Search</button>
